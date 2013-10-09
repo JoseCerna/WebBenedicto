@@ -17,14 +17,17 @@ public class Curso implements Serializable {
     private double costo;
     private int estado;
     
+    public Curso(){
+        
+    }
     
-    public Curso(String NombreCurso,int horas,int estado){
+    public Curso(String NombreCurso,int horas,double costo,int estado){
         this.nombreCurso = NombreCurso;
         this.nroHoras = horas;
         this.costo = costo;
         this.estado = estado;
     }
-
+    
     /**
      * @return the idCurso
      */

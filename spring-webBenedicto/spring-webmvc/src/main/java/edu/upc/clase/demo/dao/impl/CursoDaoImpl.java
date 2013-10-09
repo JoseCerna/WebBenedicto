@@ -6,11 +6,15 @@ package edu.upc.clase.demo.dao.impl;
 
 import edu.upc.clase.demo.dao.CursoDao;
 import edu.upc.clase.demo.entity.Curso;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
 
 /**
@@ -44,12 +48,23 @@ public class CursoDaoImpl extends SimpleJdbcDaoSupport implements CursoDao {
 
     @Override
     public List<Curso> buscarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         return getSimpleJdbcTemplate().query(
+                "select id,nombre,nroHoras,costo,estado from curso",
+                new BeanPropertyRowMapper<Curso>(Curso.class));
     }
 
     @Override
-    public List<Curso> buscarporNombre(Curso objCurso) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Curso> buscarporNombre(String nombreCurso) {
+        try {
+            Map<String,String> parametros = new HashMap<String,String>();
+            parametros.put("nombre","%"+nombreCurso+"%");
+            return getSimpleJdbcTemplate().query(
+                    "select * from curso where nombre like :nombre",
+                    new BeanPropertyRowMapper<Curso>(Curso.class),parametros);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+        
     }
     
 }

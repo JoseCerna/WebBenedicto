@@ -15,5 +15,5 @@ public interface CursoDao {
     public Integer Insertar(Curso objCurso);
     public void Actualizar(Curso objCurso);
     public List<Curso> buscarTodos();
-    public List<Curso> buscarporNombre(Curso objCurso);
+    public List<Curso> buscarporNombre(String nombreCurso);
 }

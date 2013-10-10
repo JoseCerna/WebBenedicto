@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
+import org.springframework.stereotype.Repository;
 
 /**
  *
@@ -23,6 +24,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
  *
  * @author Jose
  */
+@Repository
 public class ProfesorDaoImpl  extends SimpleJdbcDaoSupport implements ProfesorDao {
 
     private static Logger log = LoggerFactory.getLogger(NegocioDaoImpl.class);
@@ -36,7 +38,7 @@ public class ProfesorDaoImpl  extends SimpleJdbcDaoSupport implements ProfesorDa
         
     @Override
     public Integer Insertar(Profesor objProfesor) {
-        getJdbcTemplate().update("Insert into Profesor (nombre,apePaterno,apeMaterno,fechaNacimeinto,email,direccion,telefono,celular,estado) values (?,?,?,?,?,?,?,?,?)",
+        getJdbcTemplate().update("Insert into Profesor (nombre,apePaterno,apeMaterno,fechaNacimiento,email,direccion,telefono,celular,estado) values (?,?,?,?,?,?,?,?,?)",
         objProfesor.getNombre(),objProfesor.getApePaterno(),objProfesor.getApeMaterno(),objProfesor.getFechaNacimiento() ,objProfesor.getEmail(),objProfesor.getDireccion(),objProfesor.getTelefono(),objProfesor.getCelular(),objProfesor.getEstado());
         return getJdbcTemplate().queryForInt("select last_insert_id()");
     }
@@ -51,7 +53,7 @@ public class ProfesorDaoImpl  extends SimpleJdbcDaoSupport implements ProfesorDa
     @Override
     public List<Profesor> buscarTodos() {
     return getSimpleJdbcTemplate().query(
-                "select idProfesor,nombre,apePaterno,apeMaterno,fechaNacimeinto,email,direccion,telefono,celular,estado from profesor",
+                "select idProfesor,nombre,apePaterno,apeMaterno,fechaNacimiennto,email,direccion,telefono,celular,estado from profesor",
                 new BeanPropertyRowMapper<Profesor>(Profesor.class));
     }
     

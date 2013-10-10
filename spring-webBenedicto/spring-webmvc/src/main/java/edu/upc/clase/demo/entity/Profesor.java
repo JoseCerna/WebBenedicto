@@ -27,12 +27,16 @@ public class Profesor implements Serializable {
         
     }
     
-    public Profesor (String Nombre,String ApePaterno,String ApeMaterno,Date FechaNacimiento,String Email){
+    public Profesor (String Nombre,String ApePaterno,String ApeMaterno,Date FechaNacimiento,String Email, String Direccion, String Telefono, String Celular, int Estado){
         this.Nombre = Nombre;
         this.ApePaterno = ApePaterno;
         this.ApeMaterno = ApeMaterno;
         this.FechaNacimiento = FechaNacimiento;
         this.Email = Email;
+        this.Direccion = Direccion;
+        this.Telefono = Telefono;
+        this.Celular = Celular;
+        this.Estado = Estado;
     }
 
     /**
@@ -174,5 +178,6 @@ public class Profesor implements Serializable {
     public void setEstado(int Estado) {
         this.Estado = Estado;
     }
-    
+
+  
 }

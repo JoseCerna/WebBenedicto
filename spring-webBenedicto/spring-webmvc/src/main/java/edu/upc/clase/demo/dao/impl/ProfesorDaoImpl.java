@@ -19,6 +19,10 @@ import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
  *
  * @author Jose
  */
+/**
+ *
+ * @author Jose
+ */
 public class ProfesorDaoImpl  extends SimpleJdbcDaoSupport implements ProfesorDao {
 
     private static Logger log = LoggerFactory.getLogger(NegocioDaoImpl.class);
@@ -40,7 +44,7 @@ public class ProfesorDaoImpl  extends SimpleJdbcDaoSupport implements ProfesorDa
     @Override
     public void Actualizar(Profesor objProfesor) {
          getJdbcTemplate().update(
-                "update Profesor set nombre = ?, apePaterno = ?, apeMaterno= ?, fechaNacimiento=? where idProfesor = ?",
+                "update Profesor set nombre = ?, apePaterno = ?, apeMaterno = ?, fechaNacimiento = ? email= ?,direccion = ?,telefono = ?,celular = ?,estado = ? where idProfesor = ?",
                 objProfesor.getNombre(),objProfesor.getApePaterno(),objProfesor.getApeMaterno(),objProfesor.getFechaNacimiento() ,objProfesor.getEmail(),objProfesor.getDireccion(),objProfesor.getTelefono(),objProfesor.getCelular(),objProfesor.getEstado());
     }
 

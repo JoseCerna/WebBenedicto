@@ -11,86 +11,91 @@ import java.io.Serializable;
  * @author jose_cerna
  */
 public class Academia implements Serializable {
-    private int IdAcademia;
-    private String Descripcion;
-    private String Direccion;
-    private String Telefono;
-    private int Estado;
+    private int idAcademia;
+    private String descripcion;
+    private String direccion;
+    private String telefono;
+    private int estado;
 
-    public Academia (String descripcion,String direccion,String telefono,int estado){
-        this.Descripcion = descripcion;
-        this.Direccion = direccion;
-        this.Telefono = telefono;
-        this.Estado = estado;
+    public Academia() {
+        
     }
     
-    /**
-     * @return the IdAcademia
-     */
-    public int getIdAcademia() {
-        return IdAcademia;
+    public Academia (String descripcion,String direccion,String telefono,int estado){
+        this.descripcion = descripcion;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.estado = estado;
     }
 
     /**
-     * @param IdAcademia the IdAcademia to set
+     * @return the idAcademia
      */
-    public void setIdAcademia(int IdAcademia) {
-        this.IdAcademia = IdAcademia;
+    public int getidAcademia() {
+        return idAcademia;
     }
 
     /**
-     * @return the Descripcion
+     * @param idAcademia the idAcademia to set
      */
-    public String getDescripcion() {
-        return Descripcion;
+    public void setidAcademia(int idAcademia) {
+        this.idAcademia = idAcademia;
     }
 
     /**
-     * @param Descripcion the Descripcion to set
+     * @return the descripcion
      */
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
+    public String getdescripcion() {
+        return descripcion;
     }
 
     /**
-     * @return the Direccion
+     * @param descripcion the descripcion to set
      */
-    public String getDireccion() {
-        return Direccion;
+    public void setdescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     /**
-     * @param Direccion the Direccion to set
+     * @return the direccion
      */
-    public void setDireccion(String Direccion) {
-        this.Direccion = Direccion;
+    public String getdireccion() {
+        return direccion;
     }
 
     /**
-     * @return the Telefono
+     * @param direccion the direccion to set
      */
-    public String getTelefono() {
-        return Telefono;
+    public void setdireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     /**
-     * @param Telefono the Telefono to set
+     * @return the telefono
      */
-    public void setTelefono(String Telefono) {
-        this.Telefono = Telefono;
+    public String gettelefono() {
+        return telefono;
     }
 
     /**
-     * @return the Estado
+     * @param telefono the telefono to set
      */
-    public int getEstado() {
-        return Estado;
+    public void settelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     /**
-     * @param Estado the Estado to set
+     * @return the estado
      */
-    public void setEstado(int Estado) {
-        this.Estado = Estado;
+    public int getestado() {
+        return estado;
     }
+
+    /**
+     * @param estado the estado to set
+     */
+    public void setestado(int estado) {
+        this.estado = estado;
+    }
+ 
 }
